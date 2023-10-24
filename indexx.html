@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Random Story Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            color: #666;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #1e87cc;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Random Story Generator</h1>
+        <p>Enter a title for your story:</p>
+        <input type="text" id="titleInput" placeholder="Enter a title...">
+        <button onclick="generateStory()">Generate Story</button>
+        <div id="storyOutput"></div>
+    </div>
+
+    <script>
+        function generateStory() {
+            var title = document.getElementById('titleInput').value;
+            var stories = [
+                "Once upon a time, in a faraway land, there was a brave hero named " + title + ".",
+                title + " woke up one morning to find a mysterious package on the doorstep.",
+                "In a world filled with magic and wonder, " + title + " set off on an epic quest.",
+                "In the heart of the enchanted forest, " + title + " discovered a hidden treasure.",
+                title + " gazed at the stars, wondering about the mysteries of the universe.",
+            ];
+            var randomIndex = Math.floor(Math.random() * stories.length);
+            var generatedStory = stories[randomIndex];
+
+            document.getElementById('storyOutput').textContent = generatedStory;
+        }
+    </script>
+</body>
+</html>
